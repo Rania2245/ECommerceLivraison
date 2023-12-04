@@ -1,0 +1,34 @@
+<app-navbar-four></app-navbar-four>
+<div class="container">
+  <h3>Modifier Produit</h3>
+  <form [formGroup]="productForm" (ngSubmit)="onModifier()">
+    <div>
+      <input
+        class="form-control"
+        type="number"
+        formControlName="id"
+        style="display: none"
+      />
+    </div>
+    <div>
+      <label>Prix du Produit</label>
+      <input class="form-control" type="number" formControlName="price" />
+    </div>
+    <div>
+      <label>Image du Produit</label>
+      <input class="form-control" type="text" formControlName="img" />
+    </div>
+    <div>
+      <label>Description du Produit</label>
+      <input class="form-control" type="text" formControlName="label" />
+    </div>
+    <div>
+      <label>Disponibilité du Produit</label>
+      <input class="form-control" type="text" formControlName="stock" />
+    </div>
+   
+
+    <input type="submit" class="btn btn-success" value="Modifier" />
+    <input type="button" class="btn btn-danger" value="Vider" (click)="onVider()" />
+  </form>
+</div>

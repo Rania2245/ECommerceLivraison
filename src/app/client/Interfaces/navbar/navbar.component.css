@@ -1,0 +1,49 @@
+/* Add this CSS to style your navigation bar */
+.navbar-nav {
+    list-style: none; /* Remove default list styles */
+  }
+  
+  .navbar-nav .nav-item {
+    display: inline-block; /* Display list items in a line */
+    margin-right: 15px; /* Adjust margin between navigation items */
+  }
+
+.navbar {
+    padding: 1rem; 
+}
+  
+  .navbar-brand img {
+    max-height: 50px; /* Adjust the max-height of your logo */
+    width: auto;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-right: 15px; /* Adjust margin between navigation items */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #333; /* Set the color of the navigation links */
+    text-decoration: none;
+    font-weight: bold; /* Adjust font weight as needed */
+  }
+  
+  .navbar-toggler-icon {
+    border-color: #333; /* Set the color of the toggler icon */
+  }
+  
+  .navbar-light .navbar-toggler-icon {
+    background-color: #333; /* Set the background color of the toggler icon */
+  }
+  
+
+  
+  /* Optional: Add a background color for the active link */
+  .navbar-nav .nav-link.active {
+    background-color: #f8f9fa; /* Set the background color of the active link */
+  }
+  
+  /* Optional: Add hover effect for navigation links */
+  .navbar-nav .nav-link:hover {
+    color: #007bff; /* Set the color of the links on hover */
+  }
+  

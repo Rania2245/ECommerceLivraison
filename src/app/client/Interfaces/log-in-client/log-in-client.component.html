@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-light text-dark" style="border-radius: 1rem; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <h2 class="fw-bold mb-2 text-uppercase">Connectez-vous</h2>
+              <p class="text-dark mb-5">
+                Bienvenue sur Easy Delivery! Connectez-vous pour accéder à votre compte.
+              </p>
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-outline form-dark mb-4">
+                  <input
+                    type="email"
+                    id="typeEmailX"
+                    class="form-control form-control-lg"
+                    formControlName="email"
+                    placeholder="Votre adresse e-mail"
+                  />
+                  <label class="form-label" for="typeEmailX">Email</label>
+                </div>
+
+                <div class="form-outline form-dark mb-4">
+                  <input
+                    type="password"
+                    id="typePasswordX"
+                    class="form-control form-control-lg"
+                    formControlName="password"
+                    placeholder="Votre mot de passe"
+                  />
+                  <label class="form-label" for="typePasswordX">Mot de passe</label>
+                </div>
+
+                <button class="btn btn-primary mt-4 pt-2" type="submit">Connexion</button>
+
+                <div class="mt-3">
+                  <p class="mb-0">
+                    Vous n'avez pas de compte ?
+                    <a href="/register" class="text-dark fw-bold">S'inscrire</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

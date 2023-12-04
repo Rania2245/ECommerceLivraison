@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="productAddedToCart" class="alert alert-success" role="alert">
+  {{ addedProduct.label | uppercase }} a été ajouté au panier!
+</div>
+
+<div class="container-fluid mt-4 mb-4">
+  <div class="row">
+    <div class="col-12">
+      <h1>Nos Produits <i class="fas fa-bars"></i></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let produit of produitsAffiches" class="col-lg-3 mb-4">
+      <div class="card">
+        <img [src]="produit.img" class="card-img-top" alt="{{ produit.label }}" />
+
+        <div class="card-body">
+          <h5 class="card-title">{{ produit.label | uppercase }}</h5>
+          <p class="card-text">Le Prix: {{ produit.price |currency:'TND'}}</p>
+
+          <p *ngIf="produit.stock > 0" class="text-success">En Stock</p>
+          <p *ngIf="produit.stock <= 0" class="text-danger">Hors Stock</p>
+
+          <a [routerLink]="['/selectedproduit', produit._id]" class="btn btn-success">
+            <i class="fas fa-info"></i> Voir les détails
+          </a>
+
+          <button class="btn btn-secondary" (click)="ajoutPanier(produit)">
+            <i class="fas fa-cart-plus"></i> J'ACHETE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-light" style="border-radius: 1rem; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);">
+            <div class="card-body p-5 text-center">
+              <div class="mb-md-5 mt-md-4 pb-5">
+                <h2 class="fw-bold mb-2 text-uppercase">Créez un nouveau compte Livreur</h2>
+                <p class="text-light mb-5">
+                  Rejoignez Easy Delivery en créant un compte Livreur.
+                </p>
+                <form (formGroup)="signupForm" (ngSubmit)="onSubmit()">
+                  <div class="form-outline form-light mb-4">
+                    <input
+                      type="text"
+                      id="typeUsername"
+                      class="form-control form-control-lg"
+                      formControlName="username"
+                      placeholder="Votre nom d'utilisateur"
+                    />
+                    <label class="form-label" for="typeUsername">Nom d'utilisateur</label>
+                  </div>
+  
+                  <div class="form-outline form-light mb-4">
+                    <input
+                      type="password"
+                      id="typePassword"
+                      class="form-control form-control-lg"
+                      formControlName="password"
+                      placeholder="Votre mot de passe"
+                    />
+                    <label class="form-label" for="typePassword">Mot de passe</label>
+                  </div>
+  
+                  <div class="form-outline form-light mb-4">
+                    <input
+                      type="tel"
+                      id="typeTel"
+                      class="form-control form-control-lg"
+                      formControlName="tel"
+                      placeholder="Votre numéro de téléphone"
+                    />
+                    <label class="form-label" for="typeTel">Numéro de téléphone</label>
+                  </div>
+  
+                  <button class="btn btn-light mt-4 pt-2" type="submit">Créer un compte</button>
+  
+                  <div class="mt-3">
+                    <p class="mb-0">
+                      Vous avez déjà un compte ?
+                      <a href="livreur/login" class="text-light fw-bold">Connectez-vous</a>
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

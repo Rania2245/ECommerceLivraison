@@ -1,0 +1,71 @@
+<div *ngIf="Commande" class="container mt-4">
+  <h2 class="mb-4">Details for Commande {{ Commande.num_commande }}</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">
+        <strong><i class="fas fa-id-card"></i> Command ID:</strong>
+        {{ Commande._id }}
+      </p>
+      <p class="card-text">
+        <strong><i class="fas fa-list-ol"></i> Num Commande:</strong>
+        {{ Commande.num_commande }}
+      </p>
+      <p class="card-text">
+        <strong><i class="fas fa-info-circle"></i> Etat:</strong>
+        {{ Commande.etat }}
+      </p>
+      <p class="card-text">
+        <strong><i class="far fa-calendar-alt"></i> Date:</strong>
+        {{ Commande.date | date : "medium" }}
+      </p>
+    </div>
+  </div>
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <h3 class="card-title"><i class="fas fa-user"></i> Client Details</h3>
+      <p class="card-text">
+        <strong><i class="fas fa-map-marker-alt"></i> Adresse:</strong>
+        {{ Commande.client.adresse.ville }}
+      </p>
+      <p class="card-text">
+        <strong><i class="fas fa-user"></i> Nom:</strong>
+        {{ Commande.client.nom }}
+      </p>
+      <p class="card-text">
+        <strong><i class="fas fa-phone"></i> Telephone:</strong>
+        {{ Commande.client.tel }}
+      </p>
+    </div>
+  </div>
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <h3 class="card-title"><i class="fas fa-box"></i> Produits</h3>
+      <ul class="list-group">
+        <li
+          *ngFor="let ligneCommande of Commande.lignCommandes"
+          class="list-group-item"
+        >
+          <p class="mb-1">
+            <strong><i class="fas fa-barcode"></i> ID:</strong>
+            {{ ligneCommande.product._id }}
+          </p>
+          <p class="mb-1">
+            <strong><i class="fas fa-tag"></i> Libellé:</strong>
+            {{ ligneCommande.product.label }}
+          </p>
+          <p class="mb-1">
+            <strong><i class="fas fa-warehouse"></i> Quantité:</strong>
+            {{ ligneCommande.quantite }}
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="btn btn-primary mt-4" (click)="changeEtat()">
+    Change Etat to Livree
+  </button>
+</div>

@@ -1,0 +1,34 @@
+<app-navbarliv></app-navbarliv>
+
+<div class="container">
+  <h2>Liste des Commandes</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Numéro Commande</th>
+        <th scope="col">État</th>
+        <th scope="col">Client Adresse</th>
+        <th scope="col">Date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let commande of commandes">
+        <th scope="row">{{ commande._id }}</th>
+        <td>{{ commande.num_commande }}</td>
+        <td>{{ commande.etat }}</td>
+        <td>{{ commande.client.adresse.ville }}</td>
+        <td>{{ commande.date }}</td>
+        <td>
+          <a
+            [routerLink]="['/livreur/selectedCommande', commande._id]"
+            class="btn btn-success"
+          >
+            <i class="fas fa-info"></i> Voir les détails
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
