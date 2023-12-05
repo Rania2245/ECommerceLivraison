@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Lignes commandes</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          
+          <th scope="col">id</th>
+          <th scope="col">prix</th>
+          
+          <th scope="col">produits</th>
+          <th scope="col">Quantité</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lignCommand of commande.lignCommandes">
+          <th scope="row">{{ lignCommand ._id }}</th>
+          <td>{{ lignCommand.prix }}</td>
+          <td>{{ lignCommand.product.label }}</td>
+          
+          <td>{{ lignCommand.quantite }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

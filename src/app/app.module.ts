@@ -55,6 +55,7 @@ import { NavbarlivComponent } from './livreur/Interfaces/navbarliv/navbarliv.com
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,11 +8,13 @@ import { Commande } from '../Classes/commande';
   providedIn: 'root',
 })
 export class ClientService {
+  clientLogged!: Client
+
   getProfile() {
     throw new Error('Method not implemented.');
   }
   private baseUrl = 'http://localhost:3000';
-
+  
   constructor(private http: HttpClient) {}
 
   getAllClients(): Observable<Client[]> {
@@ -26,8 +28,12 @@ export class ClientService {
     );
   }
 
-  getClientById(id: number): Observable<Client> {
-    return this.http.get<Client>(`${this.baseUrl}/clients/${id}`);
+  getClientById(accessToken: string): Observable<Client> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${accessToken}`
+    });
+    return this.http.get<Client>(`${this.baseUrl}/clients/getById`,{headers:headers});
   }
 
   updateClient(id: number, updatedClient: Client): Observable<Client> {

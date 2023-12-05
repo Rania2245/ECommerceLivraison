@@ -26,6 +26,16 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/fournisseur'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <i class="fa-solid fa-sign-in"></i> Fournisseur
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/livreur'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <i class="fa-solid fa-sign-in"></i>  Livreur
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" [routerLink]="'/'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <i class="fa-solid fa-house"></i> Accueil
             </a>
@@ -33,6 +43,11 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="'/listeProduit'" routerLinkActive="active">
               <i class="fa-brands fa-product-hunt"></i> Produit
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/listCommande'" routerLinkActive="active">
+              <i class="fa-brands fa-product-hunt"></i> mes commandes
             </a>
           </li>
           <li class="nav-item">

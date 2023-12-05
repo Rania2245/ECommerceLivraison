@@ -38,7 +38,7 @@ export class FournisseurService {
     return this.http.get<Fournisseur[]>(`${this.baseUrl}/fournisseurs`);
   }
 
-  addProductFour(newProduct: Product): Observable<Fournisseur> {
+  addProductFour(formData: any): Observable<Fournisseur> {
     const token = localStorage.getItem('user');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export class FournisseurService {
     return this.http
       .put<Fournisseur>(
         `${this.baseUrl}/fournisseurs/addProduct`,
-        newProduct,
+        formData,
         requestOptions
       )
       .pipe(catchError(this.handleError));

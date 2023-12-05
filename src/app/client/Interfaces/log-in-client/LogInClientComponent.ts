@@ -61,8 +61,8 @@ export class LogInClientComponent implements OnInit {
         .subscribe(
           ({ token, client }: { token: string; client: Client }) => {
             localStorage.setItem('user', token);
-
-            this.router.navigate(['/']).then(() => window.location.reload());
+            this.clientService.clientLogged= client
+            this.router.navigate(['listeProduit']).then(() => window.location.reload());
           },
           (loginError: any) => {
             console.error('Error during login:', loginError);

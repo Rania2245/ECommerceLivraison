@@ -59,8 +59,10 @@ export class PanierComponent implements OnInit {
 
     this.ClientService.addCommande(newCommande).subscribe((commande) => {
       console.log('Commande ajoutée avec succès:', commande);
-      // localStorage.removeItem('panier');
-      // this.panier = [];
-    });
+       localStorage.removeItem('panier');
+       this.panier = [];
+    },
+     error=> alert("vous n'êtes pas authentifié ") 
+    );
   }
 }

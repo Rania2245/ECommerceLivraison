@@ -5,6 +5,9 @@ import { PanierComponent } from './Interfaces/panier/panier.component';
 import { SelectedProduitComponent } from './Interfaces/selected-produit/selected-produit.component';
 import { HomeComponent } from './Interfaces/home/home.component';
 import { LogInClientComponent } from './Interfaces/log-in-client/LogInClientComponent';
+import { RegisterClientComponent } from './Interfaces/registerCl/register-client.component';
+import { ListCommandeComponent } from './Interfaces/listCommandes/list-commande.component';
+import { DetailsCommandeComponent } from './Interfaces/detailsCommande/details-commande.component';
 
 const routes: Routes = [
   {
@@ -26,7 +29,18 @@ const routes: Routes = [
     path: 'logIn',
     component: LogInClientComponent,
   },
-
+  {
+    path: 'register',
+    component: RegisterClientComponent,
+  },
+  {
+    path: 'listCommande',
+    component: ListCommandeComponent,
+  },
+  {
+    path: 'listCommande/:id',
+    component: DetailsCommandeComponent,
+  },
   {
     path: '',
     component: HomeComponent,

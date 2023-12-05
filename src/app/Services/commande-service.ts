@@ -15,7 +15,7 @@ export class CommandeService {
     return this.http.get<Commande[]>(`${this.baseUrl}/commandes`);
   }
 
-  getCommandeById(id: number): Observable<Commande> {
+  getCommandeById(id: string): Observable<Commande> {
     return this.http.get<Commande>(`${this.baseUrl}/commandes/${id}`);
   }
 
