@@ -66,8 +66,11 @@ export class LogInClientComponent implements OnInit {
           },
           (loginError: any) => {
             console.error('Error during login:', loginError);
+            alert("ce compte n'existe pas pour un client");
           }
         );
     }
+   
   }
+  
 }

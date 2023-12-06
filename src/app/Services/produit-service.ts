@@ -23,23 +23,28 @@ export class ProductService {
     return this.http.get<Product>(`${this.baseUrl}/products/${id}`);
   }
 
-  updateProduct(id: string, updatedProduct: Product): Observable<Product> {
+  updateProduct(id: string, updatedProduct: any): Observable<any> {
     const token = localStorage.getItem('user');
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+      
       Authorization: `Bearer ${token}`,
     });
 
     const requestOptions = { headers: headers };
 
-    return this.http.put<Product>(
+    return this.http.put<any>(
       `${this.baseUrl}/products/${id}`,
       updatedProduct,
       requestOptions
     );
   }
 
-  deleteProduct(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/products/${id}`);
+  deleteProduct(id: string): Observable<void> {
+    const token = localStorage.getItem('user');
+    const headers = new HttpHeaders({
+      
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete<void>(`${this.baseUrl}/products/${id}`,{headers:headers});
   }
 }

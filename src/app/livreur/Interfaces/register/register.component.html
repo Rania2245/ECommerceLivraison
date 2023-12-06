@@ -9,8 +9,9 @@
                 <p class="text-light mb-5">
                   Rejoignez Easy Delivery en créant un compte Livreur.
                 </p>
-                <form (formGroup)="signupForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                   <div class="form-outline form-light mb-4">
+                    <label class="form-label" for="typeUsername">Nom d'utilisateur</label>
                     <input
                       type="text"
                       id="typeUsername"
@@ -18,10 +19,11 @@
                       formControlName="username"
                       placeholder="Votre nom d'utilisateur"
                     />
-                    <label class="form-label" for="typeUsername">Nom d'utilisateur</label>
+                    
                   </div>
   
                   <div class="form-outline form-light mb-4">
+                    <label class="form-label" for="typePassword">Mot de passe</label>
                     <input
                       type="password"
                       id="typePassword"
@@ -29,10 +31,11 @@
                       formControlName="password"
                       placeholder="Votre mot de passe"
                     />
-                    <label class="form-label" for="typePassword">Mot de passe</label>
+                   
                   </div>
   
                   <div class="form-outline form-light mb-4">
+                    <label class="form-label" for="typeTel">Numéro de téléphone</label>
                     <input
                       type="tel"
                       id="typeTel"
@@ -40,7 +43,7 @@
                       formControlName="tel"
                       placeholder="Votre numéro de téléphone"
                     />
-                    <label class="form-label" for="typeTel">Numéro de téléphone</label>
+                    
                   </div>
   
                   <button class="btn btn-light mt-4 pt-2" type="submit">Créer un compte</button>

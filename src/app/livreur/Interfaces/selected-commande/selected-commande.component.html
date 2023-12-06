@@ -1,5 +1,5 @@
 <div *ngIf="Commande" class="container mt-4">
-  <h2 class="mb-4">Details for Commande {{ Commande.num_commande }}</h2>
+  <h2 class="mb-4">Details for Commande {{ Commande._id }}</h2>
 
   <div class="card">
     <div class="card-body">
@@ -7,10 +7,7 @@
         <strong><i class="fas fa-id-card"></i> Command ID:</strong>
         {{ Commande._id }}
       </p>
-      <p class="card-text">
-        <strong><i class="fas fa-list-ol"></i> Num Commande:</strong>
-        {{ Commande.num_commande }}
-      </p>
+      
       <p class="card-text">
         <strong><i class="fas fa-info-circle"></i> Etat:</strong>
         {{ Commande.etat }}
@@ -27,7 +24,7 @@
       <h3 class="card-title"><i class="fas fa-user"></i> Client Details</h3>
       <p class="card-text">
         <strong><i class="fas fa-map-marker-alt"></i> Adresse:</strong>
-        {{ Commande.client.adresse.ville }}
+        {{ Commande.client.adresse }}
       </p>
       <p class="card-text">
         <strong><i class="fas fa-user"></i> Nom:</strong>

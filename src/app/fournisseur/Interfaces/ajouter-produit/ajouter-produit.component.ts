@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FournisseurService } from 'src/app/Services/fournisseur-service';
 
 @Component({
@@ -12,7 +13,8 @@ export class AjouterProduitComponent implements OnInit {
   files!: File
   constructor(
     private fournisseurService: FournisseurService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -45,10 +47,11 @@ export class AjouterProduitComponent implements OnInit {
         console.log(fd1.get("price"));
         
         this.fournisseurService
-          .addProductFour(JSON.stringify(fd1))
+          .addProductFour(fd1)
           .subscribe(
             (response) => {
               console.log('Product added successfully:', response);
+              this.router.navigate(['/fournisseur/listeProduit']);
             },
             (error) => {
               this.handleAddProductError(error);

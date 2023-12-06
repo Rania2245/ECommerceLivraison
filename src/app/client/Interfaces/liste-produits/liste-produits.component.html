@@ -14,7 +14,7 @@
   <div class="row">
     <div *ngFor="let produit of produitsAffiches" class="col-lg-3 mb-4">
       <div class="card">
-        <img [src]="produit.img" class="card-img-top" alt="{{ produit.label }}" />
+        <img [src]="url+produit.img" class="card-img-top" alt="{{ produit.label }}" />
 
         <div class="card-body">
           <h5 class="card-title">{{ produit.label | uppercase }}</h5>

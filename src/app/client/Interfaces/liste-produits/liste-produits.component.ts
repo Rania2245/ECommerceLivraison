@@ -12,7 +12,7 @@ export class ListeProduitsComponent implements OnInit {
   produitsAffiches!: Product[];
   productAddedToCart: boolean = false;
   addedProduct: any;
-
+  url="http://localhost:3000/image/"
   constructor(private produitService: ProductService) {}
 
   ngOnInit(): void {

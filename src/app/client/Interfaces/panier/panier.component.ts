@@ -13,7 +13,8 @@ import { ClientService } from 'src/app/Services/client-service';
 export class PanierComponent implements OnInit {
   constructor(private ClientService: ClientService) {}
   panier: Product[] = [];
-
+  url="http://localhost:3000/image/";
+  qte:number[]=[];
   ngOnInit(): void {
     this.initPanier();
   }
@@ -21,7 +22,11 @@ export class PanierComponent implements OnInit {
   initPanier() {
     const jsonPanier = localStorage.getItem('panier');
     if (jsonPanier !== null) this.panier = JSON.parse(jsonPanier);
-    else this.panier = [];
+    else
+     this.panier = [];
+    for(let i=0;i<this.panier.length;i++){
+      this.qte.push(1);
+    }
   }
 
   supprimerProduit(index: number) {
@@ -35,13 +40,22 @@ export class PanierComponent implements OnInit {
   }
 
   calculerTotal(): number {
-    return this.panier.reduce((acc, produit) => acc + produit.price, 0);
+    //return this.panier.reduce((acc, produit) => acc + produit.price, 0);
+    let somme=0;
+    for(let i=0;i<this.panier.length;i++){
+      somme=somme+this.qte[i]*this.panier[i].price
+      
+    }
+    return somme;
   }
-
+  change(event:any,i:number){
+    console.log(this.qte[i]);
+    
+  }
   commander() {
-    const newCommande: Commande = {
-      _id: undefined,
-      num_commande: 0,
+    let newCommande: Commande = {
+      _id: "",
+      
       etat: 'En cours',
       client: new Client(
         '',
@@ -56,7 +70,9 @@ export class PanierComponent implements OnInit {
       lignCommandes: [],
       produits: this.panier.map((element) => ({ _id: element._id!, qte: 1 })),
     };
-
+    for(let i =0;i<newCommande.produits.length;i++){
+      newCommande.produits[i].qte=this.qte[i]
+    }
     this.ClientService.addCommande(newCommande).subscribe((commande) => {
       console.log('Commande ajoutée avec succès:', commande);
        localStorage.removeItem('panier');

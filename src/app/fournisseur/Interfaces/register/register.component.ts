@@ -8,7 +8,7 @@ import { FournisseurService } from 'src/app/Services/fournisseur-service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  signupForm: FormGroup | undefined;
+  signupForm!: FormGroup ;
 
   constructor(
     private fb: FormBuilder,
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
-      tel: ['', Validators.required],
+     
     });
   }
 
@@ -28,12 +28,15 @@ export class RegisterComponent implements OnInit {
       const formData = this.signupForm.value;
       this.fournisseurService.addFournisseur(formData).subscribe(
         (response) => {
-          console.log('Livreur account created successfully', response);
+          console.log('Fournisseur account created successfully', response);
+          alert("Fournisseur account created successfully");
         },
         (error) => {
-          console.error('Error creating Livreur account', error);
+          console.error('Error creating Fournisseur account', error);
+          alert("les champs sont invalides !! ")
         }
       );
-    }
+    
   }
+}
 }

@@ -25,6 +25,10 @@ import { ListeProduitfourComponent } from './fournisseur/Interfaces/liste-produi
 import { LogInClientComponent } from './client/Interfaces/log-in-client/LogInClientComponent';
 import { NavbarFourComponent } from './fournisseur/Interfaces/navbar-four/navbar-four.component';
 import { NavbarlivComponent } from './livreur/Interfaces/navbarliv/navbarliv.component';
+import { RegisterClientComponent } from './client/Interfaces/registerCl/register-client.component';
+import { ListCommandeComponent } from './client/Interfaces/listCommandes/list-commande.component';
+import { DetailsCommandeComponent } from './client/Interfaces/detailsCommande/details-commande.component';
+import { RegisterComponent } from './fournisseur/Interfaces/register/register.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,10 @@ import { NavbarlivComponent } from './livreur/Interfaces/navbarliv/navbarliv.com
     NavbarFourComponent,
     NavbarlivComponent,
     NavbarComponent,
+    RegisterClientComponent,
+    ListCommandeComponent,
+    DetailsCommandeComponent,
+    
   ],
   imports: [
     BrowserModule,

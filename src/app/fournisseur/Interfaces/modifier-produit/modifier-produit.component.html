@@ -1,7 +1,7 @@
 <app-navbar-four></app-navbar-four>
 <div class="container">
   <h3>Modifier Produit</h3>
-  <form [formGroup]="productForm" (ngSubmit)="onModifier()">
+  <form [formGroup]="productForm" >
     <div>
       <input
         class="form-control"
@@ -16,7 +16,7 @@
     </div>
     <div>
       <label>Image du Produit</label>
-      <input class="form-control" type="text" formControlName="img" />
+      <input id="img" class="form-control" type="file" (change)="selectFiles($event)" />
     </div>
     <div>
       <label>Description du Produit</label>
@@ -28,7 +28,7 @@
     </div>
    
 
-    <input type="submit" class="btn btn-success" value="Modifier" />
+    <input type="submit" class="btn btn-success" (click)="onModifier()" value="Modifier" />
     <input type="button" class="btn btn-danger" value="Vider" (click)="onVider()" />
   </form>
 </div>

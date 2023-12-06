@@ -1,7 +1,7 @@
 import { Product } from './produit';
 
 export class Fournisseur {
-  id: number | undefined;
+  id!:string ;
   username: string;
   password: string;
   products: Product[];

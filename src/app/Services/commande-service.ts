@@ -35,7 +35,7 @@ export class CommandeService {
     return this.http.delete<void>(`${this.baseUrl}/commandes/${id}`);
   }
 
-  changeEtatCommande(id: number, commande: Commande): Observable<Commande> {
+  changeEtatCommande(id: string, commande: Commande): Observable<Commande> {
     return this.http.put<Commande>(`${this.baseUrl}/commandes/${id}`, {
       commande,
     });

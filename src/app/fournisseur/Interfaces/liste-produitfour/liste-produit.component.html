@@ -3,9 +3,9 @@
 
 <div class="container mt-4">
   <div class="row">
-    <div *ngFor="let produit of produitsAffiches; let index = index" class="col-lg-3 mb-4">
+    <div *ngFor="let produit of fournisseur.products; let index = index" class="col-lg-3 mb-4">
       <div class="card">
-        <img [src]="produit.img" class="card-img-top" alt="Product Image" />
+        <img [src]="url+produit.img" class="card-img-top" alt="Product Image" />
         <div class="card-body">
           <h5 class="card-title">{{ produit._id }}</h5>
           <h5 class="card-title">{{ produit.label | uppercase }}</h5>
@@ -15,7 +15,7 @@
             <ng-template #outOfStock>Hors Stock</ng-template>
           </p>
           <div class="btn-group" role="group">
-          <button class="btn btn-outline-success" (click)="supprimer()">
+          <button class="btn btn-outline-success" (click)="supprimer(produit._id)">
                 <i class="fa-solid fa-xmark"></i> Supprimer
               </button> 
         

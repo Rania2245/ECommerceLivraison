@@ -11,25 +11,27 @@ import { CommandeService } from 'src/app/Services/commande-service';
   styleUrls: ['./selected-commande.component.css'],
 })
 export class SelectedCommandeComponent implements OnInit {
-  Commande!: Commande | undefined;
-
+  Commande!: Commande;
+   idcommande!:string
   constructor(
     private activatedRoute: ActivatedRoute,
     private commandeService: CommandeService
   ) {}
 
   ngOnInit(): void {
-    const idcommande = this.activatedRoute.snapshot.params['id'];
+     this.idcommande = this.activatedRoute.snapshot.params['id'];
 
-    this.commandeService.getCommandeById(idcommande).subscribe((data) => {
+    this.commandeService.getCommandeById(this.idcommande).subscribe((data) => {
       this.Commande = data;
     });
   }
 
   changeEtat(): void {
-    if (this.Commande && this.Commande._id) {
-      this.Commande.etat = 'livree';
-      this.commandeService.changeEtatCommande(this.Commande._id, this.Commande);
-    }
+    
+      this.Commande.etat = 'done';
+      this.commandeService.changeEtatCommande(this.idcommande, this.Commande).subscribe(
+        data=> this.Commande=data
+        );
+    
   }
 }

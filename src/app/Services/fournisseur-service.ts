@@ -20,8 +20,16 @@ export class FournisseurService {
     );
   }
 
-  getFournisseurById(id: number): Observable<Fournisseur> {
-    return this.http.get<Fournisseur>(`${this.baseUrl}/fournisseurs/${id}`);
+ 
+    
+  
+  getFournisseurById(): Observable<Fournisseur> {
+    const token = localStorage.getItem('user');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<Fournisseur>(`${this.baseUrl}/fournisseurs/getById`,{headers:headers});
   }
 
   updateFournisseur(
@@ -41,7 +49,7 @@ export class FournisseurService {
   addProductFour(formData: any): Observable<Fournisseur> {
     const token = localStorage.getItem('user');
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+      
       Authorization: `Bearer ${token}`,
     });
 
