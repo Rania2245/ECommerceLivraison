@@ -13,6 +13,7 @@ export class SelectedProduitComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private produitService: ProductService,
   ) {}
+  url = 'http://localhost:3000/image/';
   idProduit!: string;
   produit!: Product;
 
