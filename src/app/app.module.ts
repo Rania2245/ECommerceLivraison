@@ -54,7 +54,6 @@ import { RegisterComponent } from './fournisseur/Interfaces/register/register.co
     RegisterClientComponent,
     ListCommandeComponent,
     DetailsCommandeComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -63,7 +62,6 @@ import { RegisterComponent } from './fournisseur/Interfaces/register/register.co
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent],

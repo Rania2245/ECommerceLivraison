@@ -9,7 +9,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [RegisterComponent, SelectedCommandeComponent],
-  imports: [CommonModule, LivreurRoutingModule,FormsModule,
-    ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    LivreurRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class LivreurModule {}

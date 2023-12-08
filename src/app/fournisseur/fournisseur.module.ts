@@ -6,10 +6,12 @@ import { RegisterComponent } from './Interfaces/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    RegisterComponent
+  declarations: [RegisterComponent],
+  imports: [
+    CommonModule,
+    FournisseurRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  imports: [CommonModule, FournisseurRoutingModule,FormsModule,
-    ReactiveFormsModule],
 })
 export class FournisseurModule {}

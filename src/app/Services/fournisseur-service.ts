@@ -16,29 +16,28 @@ export class FournisseurService {
     newFournisseur.products = [];
     return this.http.post<Fournisseur>(
       `${this.baseUrl}/fournisseurs`,
-      newFournisseur
+      newFournisseur,
     );
   }
 
- 
-    
-  
   getFournisseurById(): Observable<Fournisseur> {
     const token = localStorage.getItem('user');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     });
-    return this.http.get<Fournisseur>(`${this.baseUrl}/fournisseurs/getById`,{headers:headers});
+    return this.http.get<Fournisseur>(`${this.baseUrl}/fournisseurs/getById`, {
+      headers: headers,
+    });
   }
 
   updateFournisseur(
     id: number,
-    updatedFournisseur: Fournisseur
+    updatedFournisseur: Fournisseur,
   ): Observable<Fournisseur> {
     return this.http.put<Fournisseur>(
       `${this.baseUrl}/fournisseurs/${id}`,
-      updatedFournisseur
+      updatedFournisseur,
     );
   }
 
@@ -49,7 +48,6 @@ export class FournisseurService {
   addProductFour(formData: any): Observable<Fournisseur> {
     const token = localStorage.getItem('user');
     const headers = new HttpHeaders({
-      
       Authorization: `Bearer ${token}`,
     });
 
@@ -59,7 +57,7 @@ export class FournisseurService {
       .put<Fournisseur>(
         `${this.baseUrl}/fournisseurs/addProduct`,
         formData,
-        requestOptions
+        requestOptions,
       )
       .pipe(catchError(this.handleError));
   }
@@ -79,7 +77,7 @@ export class FournisseurService {
   }): Observable<{ token: string; fournisseur: Fournisseur }> {
     return this.http.post<{ token: string; fournisseur: Fournisseur }>(
       `${this.baseUrl}/fournisseurs/login`,
-      credentials
+      credentials,
     );
   }
 }

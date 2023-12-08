@@ -8,13 +8,13 @@ import { Commande } from '../Classes/commande';
   providedIn: 'root',
 })
 export class ClientService {
-  clientLogged!: Client
+  clientLogged!: Client;
 
   getProfile() {
     throw new Error('Method not implemented.');
   }
   private baseUrl = 'http://localhost:3000';
-  
+
   constructor(private http: HttpClient) {}
 
   getAllClients(): Observable<Client[]> {
@@ -24,22 +24,24 @@ export class ClientService {
   registerClient(newClient: Client): Observable<Client> {
     return this.http.post<Client>(
       `${this.baseUrl}/clients/register`,
-      newClient
+      newClient,
     );
   }
 
   getClientById(accessToken: string): Observable<Client> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${accessToken}`
+      Authorization: `Bearer ${accessToken}`,
     });
-    return this.http.get<Client>(`${this.baseUrl}/clients/getById`,{headers:headers});
+    return this.http.get<Client>(`${this.baseUrl}/clients/getById`, {
+      headers: headers,
+    });
   }
 
   updateClient(id: number, updatedClient: Client): Observable<Client> {
     return this.http.put<Client>(
       `${this.baseUrl}/clients/${id}`,
-      updatedClient
+      updatedClient,
     );
   }
 
@@ -53,7 +55,7 @@ export class ClientService {
   }): Observable<{ token: string; client: Client }> {
     return this.http.post<{ token: string; client: Client }>(
       `${this.baseUrl}/clients/login`,
-      credentials
+      credentials,
     );
   }
 
@@ -67,7 +69,7 @@ export class ClientService {
     return this.http.put<Client>(
       `${this.baseUrl}/clients/addCommande`,
       newCommande,
-      { headers }
+      { headers },
     );
   }
 }

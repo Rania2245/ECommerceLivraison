@@ -10,12 +10,12 @@ import { FournisseurService } from 'src/app/Services/fournisseur-service';
 })
 export class AjouterProduitComponent implements OnInit {
   productForm!: FormGroup;
-  files!: File
+  files!: File;
   constructor(
     private fournisseurService: FournisseurService,
     private fb: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -37,26 +37,24 @@ export class AjouterProduitComponent implements OnInit {
     if (user != null)
       if (this.productForm.valid) {
         let fd1 = new FormData();
-       
+
         console.log(this.files);
-        fd1.append("file",this.files);
+        fd1.append('file', this.files);
         fd1.append('label', this.productForm.value['label']);
         fd1.append('price', this.productForm.value['price']);
         fd1.append('stock', this.productForm.value['stock']);
 
-        console.log(fd1.get("price"));
-        
-        this.fournisseurService
-          .addProductFour(fd1)
-          .subscribe(
-            (response) => {
-              console.log('Product added successfully:', response);
-              this.router.navigate(['/fournisseur/listeProduit']);
-            },
-            (error) => {
-              this.handleAddProductError(error);
-            }
-          );
+        console.log(fd1.get('price'));
+
+        this.fournisseurService.addProductFour(fd1).subscribe(
+          (response) => {
+            console.log('Product added successfully:', response);
+            this.router.navigate(['/fournisseur/listeProduit']);
+          },
+          (error) => {
+            this.handleAddProductError(error);
+          },
+        );
       }
   }
 

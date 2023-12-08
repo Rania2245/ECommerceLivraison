@@ -8,11 +8,11 @@ import { LivreurService } from 'src/app/Services/livreur-service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  signupForm!: FormGroup ;
+  signupForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private livreurService: LivreurService
+    private livreurService: LivreurService,
   ) {}
 
   ngOnInit(): void {
@@ -29,12 +29,12 @@ export class RegisterComponent implements OnInit {
       this.livreurService.addLivreur(formData).subscribe(
         (response) => {
           console.log('Livreur account created successfully', response);
-          alert("Livreur account created successfully");
+          alert('Livreur account created successfully');
         },
         (error) => {
           console.error('Error creating Livreur account', error);
-          alert("les champs sont invalides !! ");
-        }
+          alert('les champs sont invalides !! ');
+        },
       );
     }
   }

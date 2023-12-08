@@ -29,12 +29,10 @@ export class ListeCommandesComponent implements OnInit {
       this.commandes = data;
     });
   }
-  changeEtat(commande:Commande): void {
-    
+  changeEtat(commande: Commande): void {
     commande.etat = 'done';
-    this.commandeservice.changeEtatCommande(commande._id, commande).subscribe(
-      data=> commande=data
-      );
-  
-}
+    this.commandeservice
+      .changeEtatCommande(commande._id, commande)
+      .subscribe((data) => (commande = data));
+  }
 }

@@ -7,7 +7,7 @@
         <strong><i class="fas fa-id-card"></i> Command ID:</strong>
         {{ Commande._id }}
       </p>
-      
+
       <p class="card-text">
         <strong><i class="fas fa-info-circle"></i> Etat:</strong>
         {{ Commande.etat }}
@@ -24,7 +24,7 @@
       <h3 class="card-title"><i class="fas fa-user"></i> Client Details</h3>
       <p class="card-text">
         <strong><i class="fas fa-map-marker-alt"></i> Adresse:</strong>
-        {{ Commande.client.adresse }}
+        {{ Commande.client.adresse.ville }}
       </p>
       <p class="card-text">
         <strong><i class="fas fa-user"></i> Nom:</strong>
