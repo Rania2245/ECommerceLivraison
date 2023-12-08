@@ -26,7 +26,7 @@ export class LivreurService {
   updateLivreur(id: number, updatedLivreur: Livreur): Observable<Livreur> {
     return this.http.put<Livreur>(
       `${this.baseUrl}/livreurs/${id}`,
-      updatedLivreur
+      updatedLivreur,
     );
   }
 
@@ -40,14 +40,14 @@ export class LivreurService {
   }): Observable<{ token: string; livreur: Livreur }> {
     return this.http.post<{ token: string; livreur: Livreur }>(
       `${this.baseUrl}/livreurs/login`,
-      credentials
+      credentials,
     );
   }
 
   addLivraisonLiv(id: number, commandes: string[]): Observable<Livreur> {
     return this.http.post<Livreur>(
       `${this.baseUrl}/livreurs/${id}/addLivraison`,
-      { commandes }
+      { commandes },
     );
   }
 }

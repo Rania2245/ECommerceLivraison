@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/Services/produit-service';
 export class SelectedProduitComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
-    private produitService: ProductService
+    private produitService: ProductService,
   ) {}
   idProduit!: string;
   produit!: Product;

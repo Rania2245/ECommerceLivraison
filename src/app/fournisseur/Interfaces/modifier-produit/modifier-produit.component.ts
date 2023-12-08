@@ -13,12 +13,12 @@ export class ModifierProduitComponent implements OnInit {
   productForm!: FormGroup;
   produit!: Product;
   productId: string = '0';
-  files!: File
+  files!: File;
   constructor(
     private activatedRoute: ActivatedRoute,
     private produitService: ProductService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
   ) {}
   selectFiles(event: any) {
     this.files = event.target.files[0];
@@ -65,22 +65,21 @@ export class ModifierProduitComponent implements OnInit {
 
   onModifier() {
     let fd1 = new FormData();
-       
+
     console.log(this.files);
-   
+
     fd1.append('label', this.productForm.value['label']);
     fd1.append('price', this.productForm.value['price']);
     fd1.append('stock', this.productForm.value['stock']);
-    if(this.files!=null){
-      fd1.append("file",this.files);
+    if (this.files != null) {
+      fd1.append('file', this.files);
     }
     console.log(this.productForm.value);
-    this.produitService
-      .updateProduct(this.productId, fd1)
-      .subscribe((data) => {console.log(data);
-        this.router.navigate(['/fournisseur/listeProduit']);});
-  
-}
+    this.produitService.updateProduct(this.productId, fd1).subscribe((data) => {
+      console.log(data);
+      this.router.navigate(['/fournisseur/listeProduit']);
+    });
+  }
 
   onVider() {
     this.productForm.reset();

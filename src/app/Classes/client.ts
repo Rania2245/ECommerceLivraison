@@ -18,7 +18,7 @@ export class Client {
     password: string,
     tel: string,
     adresse: Adresse,
-    commandes: Commande[]
+    commandes: Commande[],
   ) {
     this.nom = nom;
     this.prenom = prenom;

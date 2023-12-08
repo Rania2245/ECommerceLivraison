@@ -9,7 +9,7 @@ import { LivreurService } from 'src/app/Services/livreur-service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  signupForm!: FormGroup ;
+  signupForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -36,8 +36,8 @@ export class RegisterComponent implements OnInit {
         },
         (error) => {
           console.error('Error creating Livreur account', error);
-          alert("les champs sont invalides !! ");
-        }
+          alert('les champs sont invalides !! ');
+        },
       );
     }
   }

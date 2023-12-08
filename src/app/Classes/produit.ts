@@ -1,7 +1,7 @@
 import { Fournisseur } from './founisseur';
 
 export class Product {
-  _id: string ;
+  _id: string;
   img: string;
   label: string;
   price: number;
@@ -9,17 +9,17 @@ export class Product {
   fournisseur: Fournisseur;
 
   constructor(
-    _id:string,
+    _id: string,
     img: string,
     label: string,
     price: number,
     stock: number,
-    fournisseur: Fournisseur
+    fournisseur: Fournisseur,
   ) {
     (this.img = img), (this.label = label);
     this.price = price;
     this.stock = stock;
-    this._id=_id
+    this._id = _id;
     this.fournisseur = fournisseur;
   }
 }

@@ -15,7 +15,7 @@ export class LogInClientComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private clientService: ClientService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -61,16 +61,16 @@ export class LogInClientComponent implements OnInit {
         .subscribe(
           ({ token, client }: { token: string; client: Client }) => {
             localStorage.setItem('user', token);
-            this.clientService.clientLogged= client
-            this.router.navigate(['listeProduit']).then(() => window.location.reload());
+            this.clientService.clientLogged = client;
+            this.router
+              .navigate(['listeProduit'])
+              .then(() => window.location.reload());
           },
           (loginError: any) => {
             console.error('Error during login:', loginError);
             alert("ce compte n'existe pas pour un client");
-          }
+          },
         );
     }
-   
   }
-  
 }

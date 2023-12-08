@@ -15,7 +15,7 @@ export class LoginFourComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private fournisseurService: FournisseurService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -64,7 +64,7 @@ export class LoginFourComponent implements OnInit {
           (loginError: any) => {
             console.error('Error during login:', loginError);
             alert("ce compte n'existe pas pour un fournisseur");
-          }
+          },
         );
     }
   }

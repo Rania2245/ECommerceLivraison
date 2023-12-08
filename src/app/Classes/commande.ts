@@ -13,7 +13,6 @@ export class Commande {
   produits!: Array<{ _id: string; qte: number }>;
 
   constructor(
-    
     etat: string,
     client: Client,
     date: Date,
@@ -21,7 +20,6 @@ export class Commande {
     produits: any,
 
   ) {
-    
     this.etat = etat;
     this.client = client;
     this.date = date;

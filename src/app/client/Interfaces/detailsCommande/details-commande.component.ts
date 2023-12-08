@@ -6,21 +6,21 @@ import { CommandeService } from 'src/app/Services/commande-service';
 @Component({
   selector: 'app-details-commande',
   templateUrl: './details-commande.component.html',
-  styleUrls: ['./details-commande.component.css']
+  styleUrls: ['./details-commande.component.css'],
 })
 export class DetailsCommandeComponent implements OnInit {
-id!:string;
-commande!:Commande
-  constructor(private activatedRoute: ActivatedRoute,private commandeService: CommandeService) { }
+  id!: string;
+  commande!: Commande;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private commandeService: CommandeService,
+  ) {}
 
   ngOnInit(): void {
-this.id=  this.activatedRoute.snapshot.params['id'];
-this.commandeService.getCommandeById(this.id).subscribe(
-  data=> {this.commande = data
-  console.log(this.commande);
+    this.id = this.activatedRoute.snapshot.params['id'];
+    this.commandeService.getCommandeById(this.id).subscribe((data) => {
+      this.commande = data;
+      console.log(this.commande);
+    });
   }
-)
-
-  }
-
 }

@@ -26,7 +26,6 @@ export class ProductService {
   updateProduct(id: string, updatedProduct: any): Observable<any> {
     const token = localStorage.getItem('user');
     const headers = new HttpHeaders({
-      
       Authorization: `Bearer ${token}`,
     });
 
@@ -35,16 +34,17 @@ export class ProductService {
     return this.http.put<any>(
       `${this.baseUrl}/products/${id}`,
       updatedProduct,
-      requestOptions
+      requestOptions,
     );
   }
 
   deleteProduct(id: string): Observable<void> {
     const token = localStorage.getItem('user');
     const headers = new HttpHeaders({
-      
-      'Authorization': `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     });
-    return this.http.delete<void>(`${this.baseUrl}/products/${id}`,{headers:headers});
+    return this.http.delete<void>(`${this.baseUrl}/products/${id}`, {
+      headers: headers,
+    });
   }
 }

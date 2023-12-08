@@ -12,14 +12,17 @@ import { ProductService } from 'src/app/Services/produit-service';
 export class ListeProduitfourComponent implements OnInit {
   lesProduits: Product[] = [];
   produitsAffiches: Product[] = [];
-  url="http://localhost:3000/image/"
-  fournisseur!:Fournisseur
-  constructor(private produitService: ProductService,private fourService : FournisseurService) {}
+  url = 'http://localhost:3000/image/';
+  fournisseur!: Fournisseur;
+  constructor(
+    private produitService: ProductService,
+    private fourService: FournisseurService,
+  ) {}
 
   ngOnInit(): void {
-    this.fourService.getFournisseurById().subscribe(data=>{
-      this.fournisseur=data;
-    })
+    this.fourService.getFournisseurById().subscribe((data) => {
+      this.fournisseur = data;
+    });
   }
 
   fetchProduits(): void {
@@ -28,11 +31,12 @@ export class ListeProduitfourComponent implements OnInit {
       this.produitsAffiches = data;
     });
   }
- 
 
-   supprimer(id: string): void {
-     this.produitService.deleteProduct(id).subscribe((data) => {
-     this.fournisseur.products=this.fournisseur.products.filter(e=>e._id != id)
-     });
-   }
+  supprimer(id: string): void {
+    this.produitService.deleteProduct(id).subscribe((data) => {
+      this.fournisseur.products = this.fournisseur.products.filter(
+        (e) => e._id != id,
+      );
+    });
+  }
 }

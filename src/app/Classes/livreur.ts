@@ -11,7 +11,7 @@ export class Livreur {
     username: string,
     password: string,
     tel: string,
-    livraisons: Livraison[]
+    livraisons: Livraison[],
   ) {
     this.username = username;
     this.password = password;

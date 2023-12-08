@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 export class PanierComponent implements OnInit {
   constructor(private ClientService: ClientService, private router: Router) {}
   panier: Product[] = [];
-  url="http://localhost:3000/image/";
-  qte:number[]=[];
+  url = 'http://localhost:3000/image/';
+  qte: number[] = [];
   ngOnInit(): void {
     this.initPanier();
   }
@@ -23,9 +23,8 @@ export class PanierComponent implements OnInit {
   initPanier() {
     const jsonPanier = localStorage.getItem('panier');
     if (jsonPanier !== null) this.panier = JSON.parse(jsonPanier);
-    else
-     this.panier = [];
-    for(let i=0;i<this.panier.length;i++){
+    else this.panier = [];
+    for (let i = 0; i < this.panier.length; i++) {
       this.qte.push(1);
     }
   }
@@ -42,16 +41,14 @@ export class PanierComponent implements OnInit {
 
   calculerTotal(): number {
     //return this.panier.reduce((acc, produit) => acc + produit.price, 0);
-    let somme=0;
-    for(let i=0;i<this.panier.length;i++){
-      somme=somme+this.qte[i]*this.panier[i].price
-      
+    let somme = 0;
+    for (let i = 0; i < this.panier.length; i++) {
+      somme = somme + this.qte[i] * this.panier[i].price;
     }
     return somme;
   }
-  change(event:any,i:number){
+  change(event: any, i: number) {
     console.log(this.qte[i]);
-    
   }
   commander() {
     let newCommande: Commande = new Commande (
@@ -66,7 +63,7 @@ export class PanierComponent implements OnInit {
         '',
         '',
         { ville: '', region: '', rue: '', poste: '' },
-        []
+        [],
       ),
        new Date(),
        [],

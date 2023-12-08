@@ -18,7 +18,7 @@ export class LivraisonService {
   addLivraison(newLivraison: Livraison): Observable<Livraison> {
     return this.http.post<Livraison>(
       `${this.baseUrl}/livraisons`,
-      newLivraison
+      newLivraison,
     );
   }
 
@@ -28,11 +28,11 @@ export class LivraisonService {
 
   updateLivraison(
     id: number,
-    updatedLivraison: Livraison
+    updatedLivraison: Livraison,
   ): Observable<Livraison> {
     return this.http.put<Livraison>(
       `${this.baseUrl}/livraisons/${id}`,
-      updatedLivraison
+      updatedLivraison,
     );
   }
 

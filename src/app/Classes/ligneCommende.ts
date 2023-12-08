@@ -12,7 +12,7 @@ export class LignCommande {
     commande: Commande,
     product: Product,
     prix: number,
-    quantite: number
+    quantite: number,
   ) {
     this.commande = commande;
     this.product = product;

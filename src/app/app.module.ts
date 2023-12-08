@@ -67,7 +67,6 @@ import { SelectedCommandeComponent } from './livreur/Interfaces/selected-command
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent],

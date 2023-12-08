@@ -8,17 +8,24 @@ import { ClientService } from 'src/app/Services/client-service';
 @Component({
   selector: 'app-register-client',
   templateUrl: './register-client.component.html',
-  styleUrls: ['./register-client.component.css']
+  styleUrls: ['./register-client.component.css'],
 })
 export class RegisterClientComponent implements OnInit {
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
   signupForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private clientService: ClientService,
+<<<<<<< HEAD
     private router: Router
   ) { }
+=======
+  ) {}
+>>>>>>> origin/main
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
