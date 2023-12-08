@@ -14,10 +14,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private fournisseurService: FournisseurService,
-<<<<<<< HEAD
     private router: Router,
-=======
->>>>>>> origin/main
   ) {}
 
   ngOnInit(): void {
