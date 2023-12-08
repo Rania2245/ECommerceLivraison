@@ -1,20 +1,22 @@
-<div *ngIf="Commande" class="container mt-4">
-  <h2 class="mb-4">Details for Commande {{ Commande._id }}</h2>
+
+<app-navbarliv></app-navbarliv>
+<div *ngIf="commande" class="container mt-4">
+  <h2 class="mb-4">Details for Commande {{ commande._id }}</h2>
 
   <div class="card">
     <div class="card-body">
       <p class="card-text">
         <strong><i class="fas fa-id-card"></i> Command ID:</strong>
-        {{ Commande._id }}
+        {{ commande._id }}
       </p>
       
       <p class="card-text">
         <strong><i class="fas fa-info-circle"></i> Etat:</strong>
-        {{ Commande.etat }}
+        {{ commande.etat }}
       </p>
       <p class="card-text">
         <strong><i class="far fa-calendar-alt"></i> Date:</strong>
-        {{ Commande.date | date : "medium" }}
+        {{ commande.date | date : "medium" }}
       </p>
     </div>
   </div>
@@ -24,15 +26,17 @@
       <h3 class="card-title"><i class="fas fa-user"></i> Client Details</h3>
       <p class="card-text">
         <strong><i class="fas fa-map-marker-alt"></i> Adresse:</strong>
-        {{ Commande.client.adresse }}
+        {{ commande.client.adresse.ville }}
+        {{commande.client.adresse.region}}
+        {{commande.client.adresse.rue}}
       </p>
       <p class="card-text">
         <strong><i class="fas fa-user"></i> Nom:</strong>
-        {{ Commande.client.nom }}
+        {{ commande.client.username}}
       </p>
       <p class="card-text">
         <strong><i class="fas fa-phone"></i> Telephone:</strong>
-        {{ Commande.client.tel }}
+        {{ commande.client.tel }}
       </p>
     </div>
   </div>
@@ -42,7 +46,7 @@
       <h3 class="card-title"><i class="fas fa-box"></i> Produits</h3>
       <ul class="list-group">
         <li
-          *ngFor="let ligneCommande of Commande.lignCommandes"
+          *ngFor="let ligneCommande of commande.lignCommandes"
           class="list-group-item"
         >
           <p class="mb-1">

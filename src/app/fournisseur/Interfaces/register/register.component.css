@@ -1,0 +1,9 @@
+.custom-orange-btn {
+    color: #fff;
+    background-color: #ff6600; /* Couleur orange personnalisée */
+    border-color: #ff6600; /* Couleur de la bordure */
+  }
+  .custom-orange-btn:hover {
+    background-color: #e65400; /* Couleur orange plus sombre au survol */
+    border-color: #e65400;
+  }

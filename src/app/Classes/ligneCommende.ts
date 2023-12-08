@@ -2,7 +2,7 @@ import { Commande } from './commande';
 import { Product } from './produit';
 
 export class LignCommande {
-  _id: number | undefined;
+  _id!:string;
   commande: Commande;
   product: Product;
   prix: number;

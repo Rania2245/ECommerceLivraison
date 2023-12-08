@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  selector: 'app-nav-home',
+  templateUrl: './nav-home.component.html',
+  styleUrls: ['./nav-home.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavHomeComponent implements OnInit {
+
   isLoggedIn: boolean = false;
 
-  constructor(
-    private router:Router,
-  ) {
+  constructor() {
     this.checkLoginStatus();
   }
 
@@ -26,6 +24,5 @@ export class NavbarComponent implements OnInit {
   logout() {
     localStorage.removeItem('user');
     this.isLoggedIn = false;
-    this.router.navigate(['']).then(() => window.location.reload());
   }
 }

@@ -23,7 +23,7 @@
           <p *ngIf="produit.stock > 0" class="text-success">En Stock</p>
           <p *ngIf="produit.stock <= 0" class="text-danger">Hors Stock</p>
 
-          <a [routerLink]="['/selectedproduit', produit._id]" class="btn btn-success">
+          <a [routerLink]="['/selectedproduit', produit._id]" class="btn btn-info">
             <i class="fas fa-info"></i> Voir les détails
           </a>
 

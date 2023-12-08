@@ -9,7 +9,7 @@
                 <p class="text-dark mb-5">
                   Rejoignez Easy Delivery en créant un compte client.
                 </p>
-                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="signupForm" >
                   <div class="form-outline form-light mb-4">
                     <label class="form-label" for="typeUsername">Nom d'utilisateur</label>
                     <input
@@ -23,13 +23,46 @@
                   </div>
   
                   <div class="form-outline form-light mb-4">
-                    <label class="form-label" for="typeAdresse">Adresse</label>
+                    <label class="form-label" for="typeVille">Ville</label>
                     <input
                       type="text"
-                      id="typeadresse"
+                      id="typeville"
                       class="form-control form-control-lg"
-                      formControlName="adresse"
-                      placeholder="Votre adresse"
+                      formControlName="ville"
+                      placeholder="Votre ville"
+                    />
+                    
+                  </div>
+                  <div class="form-outline form-light mb-4">
+                    <label class="form-label" for="typeRegion">Region</label>
+                    <input
+                      type="text"
+                      id="typeregion"
+                      class="form-control form-control-lg"
+                      formControlName="region"
+                      placeholder="Votre region"
+                    />
+                    
+                  </div>
+                  <div class="form-outline form-light mb-4">
+                    <label class="form-label" for="typeRue">rue</label>
+                    <input
+                      type="text"
+                      id="typeRue"
+                      class="form-control form-control-lg"
+                      formControlName="rue"
+                      placeholder="Votre rue"
+                    />
+                    
+                  </div>
+                  <div class="form-outline form-light mb-4">
+                    <label class="form-label" for="typePoste">poste</label>
+                    <input
+                      type="text"
+                      id="typePoste"
+                      class="form-control form-control-lg"
+                      formControlName="postee"
+                      placeholder="Votre poste"
                     />
                     
                   </div>
@@ -57,12 +90,12 @@
                   </div>
   
   
-                  <button class="btn btn-warning" type="submit" >Créer un compte</button>
+                  <button class="btn btn-warning" type="submit" (click)="onSubmit()">Créer un compte</button>
   
                   <div class="mt-3">
                     <p class="mb-0">
                       Vous avez déjà un compte ?
-                      <a href="/logIn" class="text-light fw-bold">Connectez-vous</a>
+                      <a href="/logIn" class="text-dark fw-bold">Connectez-vous</a>
                     </p>
                   </div>
                 </form>

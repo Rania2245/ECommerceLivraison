@@ -19,7 +19,7 @@
         <th scope="row">{{ commande._id }}</th>
         
         <td>{{ commande.etat }}</td>
-        <td>{{ commande.client.adresse }}</td>
+        <td>{{ commande.client.adresse.ville }}{{ commande.client.adresse.region }}{{ commande.client.adresse.rue }}</td>
         <td>{{ commande.date|date }}</td>
         <td>
           <a

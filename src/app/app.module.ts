@@ -29,6 +29,8 @@ import { RegisterClientComponent } from './client/Interfaces/registerCl/register
 import { ListCommandeComponent } from './client/Interfaces/listCommandes/list-commande.component';
 import { DetailsCommandeComponent } from './client/Interfaces/detailsCommande/details-commande.component';
 import { RegisterComponent } from './fournisseur/Interfaces/register/register.component';
+import { NavHomeComponent } from './client/Interfaces/nav-home/nav-home.component';
+import { SelectedCommandeComponent } from './livreur/Interfaces/selected-commande/selected-commande.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { RegisterComponent } from './fournisseur/Interfaces/register/register.co
     RegisterClientComponent,
     ListCommandeComponent,
     DetailsCommandeComponent,
+    NavHomeComponent,
+    SelectedCommandeComponent
     
   ],
   imports: [

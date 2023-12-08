@@ -4,6 +4,7 @@ import { Commande } from 'src/app/Classes/commande';
 import { CommandeService } from 'src/app/Services/commande-service';
 import { Client } from 'src/app/Classes/client';
 import { ClientService } from 'src/app/Services/client-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panier',
@@ -11,7 +12,7 @@ import { ClientService } from 'src/app/Services/client-service';
   styleUrls: ['./panier.component.css'],
 })
 export class PanierComponent implements OnInit {
-  constructor(private ClientService: ClientService) {}
+  constructor(private ClientService: ClientService, private router: Router) {}
   panier: Product[] = [];
   url="http://localhost:3000/image/";
   qte:number[]=[];
@@ -53,11 +54,12 @@ export class PanierComponent implements OnInit {
     
   }
   commander() {
-    let newCommande: Commande = {
-      _id: "",
+    let newCommande: Commande = new Commande (
+
       
-      etat: 'En cours',
-      client: new Client(
+      
+       'En cours',
+      new Client(
         '',
         '',
         '',
@@ -66,10 +68,10 @@ export class PanierComponent implements OnInit {
         { ville: '', region: '', rue: '', poste: '' },
         []
       ),
-      date: new Date(),
-      lignCommandes: [],
-      produits: this.panier.map((element) => ({ _id: element._id!, qte: 1 })),
-    };
+       new Date(),
+       [],
+        this.panier.map((element) => ({ _id: element._id!, qte: 1 })),
+    );
     for(let i =0;i<newCommande.produits.length;i++){
       newCommande.produits[i].qte=this.qte[i]
     }
@@ -77,6 +79,7 @@ export class PanierComponent implements OnInit {
       console.log('Commande ajoutée avec succès:', commande);
        localStorage.removeItem('panier');
        this.panier = [];
+       this.router.navigate(['listeProduit']).then(() => window.location.reload());
     },
      error=> alert("vous n'êtes pas authentifié ") 
     );

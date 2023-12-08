@@ -2,7 +2,7 @@ import { Adresse } from './adress';
 import { Commande } from './commande';
 
 export class Client {
-  id: number | undefined;
+  id!: string;
   nom: string;
   prenom: string;
   username: string;

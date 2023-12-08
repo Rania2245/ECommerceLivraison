@@ -8,8 +8,14 @@ import { SelectedCommandeComponent } from './Interfaces/selected-commande/select
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [RegisterComponent, SelectedCommandeComponent],
-  imports: [CommonModule, LivreurRoutingModule,FormsModule,
+  declarations: [
+    RegisterComponent, 
+    
+  ],
+  imports: [
+    CommonModule,
+    LivreurRoutingModule,
+    FormsModule,
     ReactiveFormsModule],
 })
 export class LivreurModule {}

@@ -11,7 +11,7 @@ import { CommandeService } from 'src/app/Services/commande-service';
   styleUrls: ['./selected-commande.component.css'],
 })
 export class SelectedCommandeComponent implements OnInit {
-  Commande!: Commande;
+  commande!: Commande;
    idcommande!:string
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,16 +22,17 @@ export class SelectedCommandeComponent implements OnInit {
      this.idcommande = this.activatedRoute.snapshot.params['id'];
 
     this.commandeService.getCommandeById(this.idcommande).subscribe((data) => {
-      this.Commande = data;
+      this.commande = data;
     });
   }
 
   changeEtat(): void {
     
-      this.Commande.etat = 'done';
-      this.commandeService.changeEtatCommande(this.idcommande, this.Commande).subscribe(
-        data=> this.Commande=data
+      this.commande.etat = 'done';
+      this.commandeService.changeEtatCommande(this.idcommande, this.commande).subscribe(
+        data=> this.commande=data
         );
+        
     
   }
 }

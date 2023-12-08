@@ -2,7 +2,7 @@ import { Commande } from './commande';
 import { Livreur } from './livreur';
 
 export class Livraison {
-  id: number | undefined;
+  id!:string;
   commandes: Commande[];
   livreur: Livreur;
 

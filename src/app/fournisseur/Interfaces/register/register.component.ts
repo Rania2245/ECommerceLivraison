@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FournisseurService } from 'src/app/Services/fournisseur-service';
 
 @Component({
@@ -12,7 +13,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private fournisseurService: FournisseurService
+    private fournisseurService: FournisseurService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class RegisterComponent implements OnInit {
         (response) => {
           console.log('Fournisseur account created successfully', response);
           alert("Fournisseur account created successfully");
+          this.router.navigate(['login']).then(() => window.location.reload());
         },
         (error) => {
           console.error('Error creating Fournisseur account', error);

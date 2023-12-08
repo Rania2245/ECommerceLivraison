@@ -1,7 +1,7 @@
 import { Livraison } from './livraison';
 
 export class Livreur {
-  id: number | undefined;
+  id!:string;
   username: string;
   password: string;
   tel: string;
